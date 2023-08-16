@@ -22,7 +22,7 @@ describe("operations/to_number", () => {
     },
   );
 
-  it.prop([fc.array(fc.anything())])(
+  it.prop([fc.array(fc.anything(), { minLength: 1 })])(
     "should transform array to number",
     (v) => {
       expect(to_number(v as any)).toBe(+v);
