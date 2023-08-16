@@ -31,6 +31,7 @@ export * from "./nullable/index.js";
 export * from "./number_type/index.js";
 export * from "./object/index.js";
 export * from "./object_type/index.js";
+export * from "./one_of/index.js";
 export * from "./optional/index.js";
 export * from "./or/index.js";
 export * from "./plus/index.js";
