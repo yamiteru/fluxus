@@ -5,6 +5,7 @@ export * from "./bigint_type/index.js";
 export * from "./boolean_type/index.js";
 export * from "./capitalize/index.js";
 export * from "./date/index.js";
+export * from "./defaulted/index.js";
 export * from "./divide/index.js";
 export * from "./email/index.js";
 export * from "./emoji/index.js";
