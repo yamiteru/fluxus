@@ -45,6 +45,7 @@ export * from "./split/index.js";
 export * from "./starts_with/index.js";
 export * from "./string_type/index.js";
 export * from "./symbol_type/index.js";
+export * from "./tap/index.js";
 export * from "./to_bigint/index.js";
 export * from "./to_boolean/index.js";
 export * from "./to_date/index.js";
