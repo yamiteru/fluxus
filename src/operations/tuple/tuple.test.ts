@@ -15,10 +15,14 @@ describe("operation/tuple", () => {
     },
   );
 
-  it.prop([fc.anything()])(
-    "should throw error if value doesn't match a tuple",
+  it.prop([fc.tuple(fc.string(), fc.string(), fc.boolean())])(
+    "should throw if one of the values doesn't match an operation",
     (v) => {
       expect(() => tuple_operation(v as any)).toThrow();
     },
   );
+
+  it.prop([fc.string()])("should throw if value is not an array", (v) => {
+    expect(() => tuple_operation(v as any)).toThrow();
+  });
 });
