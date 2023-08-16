@@ -1,0 +1,77 @@
+{
+  "name": "fluxus",
+  "type": "module",
+  "version": "0.0.0",
+  "author": "Miroslav Vršecký <yamiteru@icloud.com>",
+  "description": "Low-level data validation library for TypeScript",
+  "main": "dist/index.cjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist/*.cjs",
+    "dist/*.js",
+    "dist/*.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yamiteru/fluxus.git",
+    "directory": "src"
+  },
+  "keywords": [
+    "data-validation",
+    "pipe-operator",
+    "modular",
+    "composable",
+    "control-flow",
+    "low-level",
+    "javascript",
+    "typescript"
+  ],
+  "bugs": {
+    "url": "https://github.com/yamiteru/fluxus/issues"
+  },
+  "homepage": "https://github.com/yamiteru/fluxus",
+  "scripts": {
+    "fix:format": "prettier --write \"**/*.ts\"",
+    "fix:lint": "eslint --fix --ext .ts .",
+    "fix": "pnpm fix:lint && pnpm fix:format",
+    "check:format": "prettier --check \"**/*.ts\"",
+    "check:lint": "eslint --ext .ts .",
+    "check": "pnpm check:lint && pnpm check:format",
+    "test": "vitest src",
+    "coverage": "vitest src --coverage",
+    "build": "tsup",
+    "prepublishOnly": "pnpm test && pnpm build",
+    "release": "release-it",
+    "generate": "tsx scripts/generate/index.ts"
+  },
+  "devDependencies": {
+    "@fast-check/vitest": "0.0.6",
+    "@types/benchmark": "2.1.2",
+    "@types/node": "20.5.0",
+    "@typescript-eslint/eslint-plugin": "6.4.0",
+    "@typescript-eslint/parser": "6.4.0",
+    "benchmark": "2.1.4",
+    "eslint": "8.47.0",
+    "eslint-config-prettier": "9.0.0",
+    "fast-check": "3.12.0",
+    "prettier": "3.0.2",
+    "release-it": "16.1.5",
+    "ts-node": "10.9.1",
+    "tsup": "7.2.0",
+    "typescript": "5.1.6",
+    "vitest": "0.34.1",
+    "tsx": "3.12.7"
+  }
+}
