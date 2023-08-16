@@ -13,6 +13,7 @@ export * from "./ends_with/index.js";
 export * from "./even/index.js";
 export * from "./finite/index.js";
 export * from "./float/index.js";
+export * from "./function_type/index.js";
 export * from "./gt/index.js";
 export * from "./gte/index.js";
 export * from "./instance_of/index.js";
