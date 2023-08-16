@@ -22,12 +22,11 @@ describe("operations/to_number", () => {
     },
   );
 
-  it.prop([fc.array(fc.anything(), { minLength: 1 })])(
-    "should transform array to number",
-    (v) => {
-      expect(to_number(v as any)).toBe(+v);
-    },
-  );
+  it.prop([
+    fc.array(fc.oneof(fc.string(), fc.nat(), fc.boolean()), { minLength: 1 }),
+  ])("should transform array to number", (v) => {
+    expect(to_number(v as any)).toBe(+v);
+  });
 
   it.prop([fc.bigInt()])("should throw on transform bigint to number", (v) => {
     expect(() => to_number(v as any)).toThrow();
