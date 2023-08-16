@@ -14,17 +14,11 @@ export const array = <$Operation extends Operation<any>>(
   const parse = (value: Input<$Operation>[]) => {
     is_array(value);
 
-    const output: Output<$Operation>[] = [];
-
     try {
-      for (const item of value) {
-        output.push(operation(item));
-      }
+      return value.map((v) => operation(v));
     } catch (e) {
       error("ARRAY", { operation }, e);
     }
-
-    return output;
   };
 
   parse.operation = operation;
