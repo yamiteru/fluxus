@@ -40,6 +40,7 @@ export * from "./plus/index.js";
 export * from "./positive/index.js";
 export * from "./record/index.js";
 export * from "./regex/index.js";
+export * from "./set_instance/index.js";
 export * from "./split/index.js";
 export * from "./starts_with/index.js";
 export * from "./string_type/index.js";
