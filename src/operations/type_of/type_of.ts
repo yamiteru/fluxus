@@ -1,6 +1,15 @@
 import { Operation, TypeOfOptions, TypeOfType } from "../../types.js";
 import { error } from "../../utils/index.js";
 
+/*
+ * Checks if the input is of a certain type and returns it back.
+ *
+ * @example
+ * ```ts
+ * type_of("bigint");
+ * type_of("boolean");
+ * ```
+ * */
 export const type_of =
   <$TypeOfOptions extends TypeOfOptions>(
     desiredType: $TypeOfOptions,

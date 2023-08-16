@@ -1,4 +1,4 @@
-import { Operation } from "../../types.js";
+import { InferTupleInput, InferTupleOutput, Operation } from "../../types.js";
 import { error } from "../../utils/index.js";
 
 export function and<$Input, $Output_1, $Output_2>(
@@ -1227,10 +1227,29 @@ export function and<
   ],
 ): Operation<$Input, $Output_32>;
 
-export function and<$Operations extends Operation<unknown>[]>(
+/*
+ * Sequentially applies a list of operations to a value.
+ *
+ * Given operations `A`, `B`, `C` and value `X`, the result will be `C(B(A(X)))`.
+ *
+ * It supports up to 32 operations with automatic type inference.
+ *
+ * @example
+ * ```ts
+ * and([
+ *   number_type,
+ *   positive,
+ *   integer,
+ *   lte(0),
+ *   gte(100)
+ * ]);
+ * ```
+ * */
+export function and<$Operations extends Operation<any>[]>(
   operations: $Operations,
-) {
+): Operation<InferTupleInput<$Operations>, InferTupleOutput<$Operations>> {
   return (value: any) =>
+    // TODO: benchmark .reduce against for loop
     operations.reduce((acc, guard) => {
       try {
         return guard(acc);
