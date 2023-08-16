@@ -19,4 +19,11 @@ describe("operation/array", () => {
       expect(() => array_operation(v as any)).toThrow();
     },
   );
+
+  it.prop([fc.array(fc.nat(), { minLength: 1 })])(
+    "should throw error if it of of the items doesn't match array operation",
+    (v) => {
+      expect(() => array_operation(v as any)).toThrow();
+    },
+  );
 });

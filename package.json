@@ -50,7 +50,9 @@
     "check:lint": "eslint --ext .ts .",
     "check": "pnpm check:lint && pnpm check:format",
     "test": "vitest src",
+    "test:run": "vitest --run src",
     "coverage": "vitest src --coverage",
+    "coverage:run": "vitest src --run --coverage",
     "build": "tsup",
     "prepublishOnly": "pnpm test && pnpm build",
     "release": "release-it",
@@ -62,6 +64,7 @@
     "@types/node": "20.5.0",
     "@typescript-eslint/eslint-plugin": "6.4.0",
     "@typescript-eslint/parser": "6.4.0",
+    "@vitest/coverage-v8": "0.34.1",
     "benchmark": "2.1.4",
     "eslint": "8.47.0",
     "eslint-config-prettier": "9.0.0",
@@ -70,8 +73,8 @@
     "release-it": "16.1.5",
     "ts-node": "10.9.1",
     "tsup": "7.2.0",
+    "tsx": "3.12.7",
     "typescript": "5.1.6",
-    "vitest": "0.34.1",
-    "tsx": "3.12.7"
+    "vitest": "0.34.1"
   }
 }
