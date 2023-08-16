@@ -24,7 +24,7 @@ export type ObjectOutput<$Schema extends ObjectSchema> = Pretty<{
   [$Key in keyof $Schema]: Output<$Schema[$Key]>;
 }>;
 
-export type Instance<$Type> = new () => $Type;
+export type Instance<$Type> = (new () => $Type) | $Type;
 
 export type ObjectKey = string | number | symbol;
 

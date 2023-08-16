@@ -4,7 +4,7 @@ import { error } from "../../utils/index.js";
 export const instance_of =
   <$Type>(desiredClass: Instance<$Type>): Operation<$Type> =>
   (currentClass) => (
-    !(currentClass instanceof desiredClass) &&
+    !(currentClass instanceof <any>desiredClass) &&
       error("INSTANCE", { desiredClass, currentClass }),
     currentClass
   );
