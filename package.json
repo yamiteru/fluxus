@@ -56,7 +56,7 @@
     "build": "tsup",
     "prepublishOnly": "pnpm test:run && pnpm build",
     "release": "release-it",
-    "generate": "tsx scripts/generate/index.ts"
+    "generate:types": "tsx scripts/generate/index.ts"
   },
   "devDependencies": {
     "@fast-check/vitest": "0.0.6",

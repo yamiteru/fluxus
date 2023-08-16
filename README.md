@@ -1,4 +1,4 @@
-# Beren
+# Fluxus
 
 ## Goals
 
