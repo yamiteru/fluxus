@@ -24,6 +24,14 @@ export type ObjectOutput<$Schema extends ObjectSchema> = Pretty<{
   [$Key in keyof $Schema]: Output<$Schema[$Key]>;
 }>;
 
+export type InferTupleOutput<$Tuple extends Operation<any, any>[]> = {
+  [$Key in keyof $Tuple]: Output<$Tuple[$Key]>;
+};
+
+export type InferTupleInput<$Tuple extends Operation<any, any>[]> = {
+  [$Key in keyof $Tuple]: Input<$Tuple[$Key]>;
+};
+
 export type Instance<$Type> = (new () => $Type) | $Type;
 
 export type ObjectKey = string | number | symbol;

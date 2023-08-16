@@ -55,6 +55,7 @@ export * from "./to_upper_case/index.js";
 export * from "./trim/index.js";
 export * from "./trim_end/index.js";
 export * from "./trim_start/index.js";
+export * from "./tuple/index.js";
 export * from "./type_of/index.js";
 export * from "./undefined_type/index.js";
 export * from "./unknown/index.js";
