@@ -5,7 +5,7 @@ import { string_type } from "../string_type/index.js";
 
 describe("operation/defaulted", () => {
   const default_value = "hello";
-  const defaulted_operation = defaulted(string_type, default_value);
+  const defaulted_operation = defaulted(string_type, () => default_value);
 
   it.prop([fc.string()])("should return input if it matches operation", (v) => {
     expect(defaulted_operation(v)).toBe(v);
