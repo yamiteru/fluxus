@@ -22,6 +22,7 @@ export * from "./is_array/index.js";
 export * from "./literal/index.js";
 export * from "./lt/index.js";
 export * from "./lte/index.js";
+export * from "./map_instance/index.js";
 export * from "./maybe/index.js";
 export * from "./minus/index.js";
 export * from "./multiple_of/index.js";
