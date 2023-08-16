@@ -1,5 +1,6 @@
 export * from "./and/index.js";
 export * from "./any/index.js";
+export * from "./array/index.js";
 export * from "./bigint_type/index.js";
 export * from "./boolean_type/index.js";
 export * from "./capitalize/index.js";
@@ -15,6 +16,7 @@ export * from "./gt/index.js";
 export * from "./gte/index.js";
 export * from "./instance_of/index.js";
 export * from "./integer/index.js";
+export * from "./is_array/index.js";
 export * from "./literal/index.js";
 export * from "./lt/index.js";
 export * from "./lte/index.js";
