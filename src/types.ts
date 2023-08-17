@@ -3,18 +3,26 @@ export type Pretty<$Type> = {
 } & {};
 
 export type Operation<
-  $Input,
+  $Input = any,
   $Output = $Input,
   $Context extends Record<string, any> = {},
 > = ((value: $Input) => $Output) & $Context;
 
-export type Input<$Operation extends Operation<any>> =
-  $Operation extends Operation<infer $Input, any> ? $Input : never;
+export type Input<$Operation extends Operation> = $Operation extends Operation<
+  infer $Input,
+  any
+>
+  ? $Input
+  : never;
 
-export type Output<$Operation extends Operation<any>> =
-  $Operation extends Operation<any, infer $Output> ? $Output : never;
+export type Output<$Operation extends Operation> = $Operation extends Operation<
+  any,
+  infer $Output
+>
+  ? $Output
+  : never;
 
-export type ObjectSchema = Record<string, Operation<any>>;
+export type ObjectSchema = Record<string, Operation>;
 
 export type ObjectInput<$Schema extends ObjectSchema> = Pretty<{
   [$Key in keyof $Schema]: Input<$Schema[$Key]>;
@@ -24,11 +32,11 @@ export type ObjectOutput<$Schema extends ObjectSchema> = Pretty<{
   [$Key in keyof $Schema]: Output<$Schema[$Key]>;
 }>;
 
-export type InferTupleOutput<$Tuple extends Operation<any, any>[]> = {
+export type InferTupleOutput<$Tuple extends Operation[]> = {
   [$Key in keyof $Tuple]: Output<$Tuple[$Key]>;
 };
 
-export type InferTupleInput<$Tuple extends Operation<any, any>[]> = {
+export type InferTupleInput<$Tuple extends Operation[]> = {
   [$Key in keyof $Tuple]: Input<$Tuple[$Key]>;
 };
 

@@ -16,7 +16,7 @@ import { object_type } from "../object_type/index.js";
  * */
 export const record = <
   $Key extends Operation<any, ObjectKey>,
-  $Value extends Operation<any>,
+  $Value extends Operation,
 >(
   key: $Key,
   value: $Value,

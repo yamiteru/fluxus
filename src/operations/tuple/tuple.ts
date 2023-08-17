@@ -4,7 +4,7 @@ import { is_array } from "../is_array/index.js";
 /*
  * Checks if the value matches all operations in the tuple.
  * */
-export const tuple = <$Tuple extends Operation<any, any>[]>(
+export const tuple = <$Tuple extends Operation[]>(
   tuple: $Tuple,
 ): Operation<
   InferTupleInput<$Tuple>,

@@ -1,4 +1,4 @@
-import { InferTupleInput, InferTupleOutput, Operation } from "../../types.js";
+import { Operation } from "../../types.js";
 import { error } from "../../utils/index.js";
 
 export function and<$Input, $Output_1, $Output_2>(
@@ -1245,9 +1245,7 @@ export function and<
  * ]);
  * ```
  * */
-export function and<$Operations extends Operation<any>[]>(
-  operations: $Operations,
-): Operation<InferTupleInput<$Operations>, InferTupleOutput<$Operations>> {
+export function and<$Operations extends Operation[]>(operations: $Operations) {
   return (value: any) =>
     // TODO: benchmark .reduce against for loop
     operations.reduce((acc, guard) => {

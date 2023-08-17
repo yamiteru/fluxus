@@ -5,6 +5,5 @@ import { Operation } from "../../types.js";
 /*
  * Checks if the value is `undefined` or `null` or the operation.
  * */
-export const nullable = <$Operation extends Operation<any, any>>(
-  operation: $Operation,
-) => or([literal(null), operation]);
+export const nullable = <$Operation extends Operation>(operation: $Operation) =>
+  or([literal(null), operation]);

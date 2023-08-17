@@ -8,7 +8,7 @@ import { Input, Operation, Output } from "../../types.js";
  * The default value is lazy.
  * */
 export const defaulted =
-  <$Operation extends Operation<any>>(
+  <$Operation extends Operation>(
     operation: $Operation,
     defaultValue: (value: Input<$Operation>) => Output<$Operation>,
   ): Operation<Input<$Operation>, Output<$Operation>> =>

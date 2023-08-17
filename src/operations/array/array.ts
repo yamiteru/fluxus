@@ -11,7 +11,7 @@ import { is_array } from "../is_array/index.js";
  * ```ts
  * array(string_type);
  * */
-export const array = <$Operation extends Operation<any>>(
+export const array = <$Operation extends Operation>(
   operation: $Operation,
 ): Operation<
   Input<$Operation>[],

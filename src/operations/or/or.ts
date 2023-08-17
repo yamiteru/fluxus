@@ -14,7 +14,7 @@ import { error } from "../../utils/index.js";
  * );
  * ```
  * */
-export function or<$Operations extends Operation<any, any>[]>(
+export function or<$Operations extends Operation[]>(
   operations: $Operations,
 ): $Operations[number] {
   return (value) => {

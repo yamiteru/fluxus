@@ -13,9 +13,9 @@ import { error } from "../../utils/index.js";
 export const type_of =
   <$TypeOfOptions extends TypeOfOptions>(
     desiredType: $TypeOfOptions,
-  ): Operation<TypeOfType<$TypeOfOptions>> =>
-  (value: TypeOfType<$TypeOfOptions>) => (
+  ): Operation<any, TypeOfType<$TypeOfOptions>> =>
+  (value) => (
     typeof value !== desiredType &&
       error("TYPE", { desiredType, currentType: typeof value }),
-    value
+    value as TypeOfType<$TypeOfOptions>
   );
