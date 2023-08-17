@@ -10,6 +10,9 @@ export class CustomError {
   }
 }
 
+/*
+ * Throws a new `CustomError` with the given `reason`, `context` and `children`.
+ * */
 export const error = (
   reason: string,
   context?: Record<ObjectKey, unknown>,

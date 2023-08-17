@@ -1,6 +1,9 @@
 import { InferTupleInput, InferTupleOutput, Operation } from "../../types.js";
 import { is_array } from "../is_array/index.js";
 
+/*
+ * Checks if the value matches all operations in the tuple.
+ * */
 export const tuple = <$Tuple extends Operation<any, any>[]>(
   tuple: $Tuple,
 ): Operation<

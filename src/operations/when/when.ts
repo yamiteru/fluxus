@@ -1,6 +1,11 @@
 import { Operation } from "../../types.js";
 import { error } from "../../utils/index.js";
 
+/*
+ * Based on the condition, returns the output of either the true case or the false case.
+ *
+ * By default, if the condition throws an error, it will throw a when error.
+ * */
 export const when = <$Input, $TrueOutput, $FalseOutput = never>(
   condition: Operation<$Input, any>,
   trueCase: Operation<$Input, $TrueOutput>,

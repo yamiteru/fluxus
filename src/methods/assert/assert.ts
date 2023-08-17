@@ -1,5 +1,8 @@
 import { Operation } from "../../types.js";
 
+/*
+ * Asserts that the value matches the operation.
+ * */
 export function assert<$Input, $Output>(
   operation: Operation<$Input, $Output>,
   value: unknown,

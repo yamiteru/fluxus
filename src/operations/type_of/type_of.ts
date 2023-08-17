@@ -2,7 +2,7 @@ import { Operation, TypeOfOptions, TypeOfType } from "../../types.js";
 import { error } from "../../utils/index.js";
 
 /*
- * Checks if the input is of a certain type and returns it back.
+ * Checks if the input is of a certain type.
  *
  * @example
  * ```ts

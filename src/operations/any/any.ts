@@ -1,6 +1,6 @@
 import { Operation } from "../../types.js";
 
 /*
- * Accepts `any` input and returns it back.
+ * Accepts `any` input.
  * */
 export const any: Operation<any> = (value) => value;
