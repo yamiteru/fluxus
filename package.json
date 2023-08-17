@@ -4,17 +4,39 @@
   "version": "0.0.5",
   "author": "Miroslav Vršecký <yamiteru@icloud.com>",
   "description": "Low-level data validation library for TypeScript",
-  "main": "dist/index.cjs",
-  "types": "dist/index.d.ts",
+  "main": "dist/index.prod.cjs",
+  "types": "dist/index.prod.d.ts",
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+      "production": {
+        "import": {
+          "types": "./dist/index.prod.d.ts",
+          "default": "./dist/index.prod.js"
+        },
+        "require": {
+          "types": "./dist/index.prod.d.ts",
+          "default": "./dist/index.prod.cjs"
+        }
       },
-      "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.cjs"
+      "development": {
+        "import": {
+          "types": "./dist/index.dev.d.ts",
+          "default": "./dist/index.dev.js"
+        },
+        "require": {
+          "types": "./dist/index.dev.d.ts",
+          "default": "./dist/index.dev.cjs"
+        }
+      },
+      "default": {
+        "import": {
+          "types": "./dist/index.prod.d.ts",
+          "default": "./dist/index.prod.js"
+        },
+        "require": {
+          "types": "./dist/index.prod.d.ts",
+          "default": "./dist/index.prod.cjs"
+        }
       }
     }
   },
@@ -49,11 +71,11 @@
     "check:format": "prettier --check \"**/*.ts\"",
     "check:lint": "eslint --ext .ts .",
     "check": "pnpm check:lint && pnpm check:format",
-    "test": "vitest src",
+    "test": "vitest --reporter verbose src",
     "test:run": "vitest --run src",
     "coverage": "vitest src --coverage",
     "coverage:run": "vitest src --run --coverage",
-    "build": "tsup",
+    "build": "tsup --no-splitting src/index.dev.ts src/index.prod.ts",
     "prepublishOnly": "pnpm test:run && pnpm build",
     "release": "release-it",
     "generate:types": "tsx scripts/generate/index.ts"
