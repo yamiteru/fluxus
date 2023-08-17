@@ -1,7 +1,7 @@
 import { fc, it } from "@fast-check/vitest";
 import { describe, expect } from "vitest";
 import { is } from "./is.js";
-import { string_type } from "../../operations/string_type/index.js";
+import { string_type } from "../../operations/index.js";
 
 describe("method/is", () => {
   it.prop([fc.string()])(
