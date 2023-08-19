@@ -1,4 +1,4 @@
-import { fc } from "@fast-check/vitest";
+import fc from "fast-check";
 
 export const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 

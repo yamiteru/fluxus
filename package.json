@@ -67,36 +67,29 @@
   "scripts": {
     "fix:format": "prettier --write \"**/*.ts\"",
     "fix:lint": "eslint --fix --ext .ts .",
-    "fix": "pnpm fix:lint && pnpm fix:format",
+    "fix": "bun run fix:lint && bun run fix:format",
     "check:format": "prettier --check \"**/*.ts\"",
     "check:lint": "eslint --ext .ts .",
-    "check": "pnpm check:lint && pnpm check:format",
-    "test": "vitest --reporter verbose src",
-    "test:run": "vitest --run src",
-    "coverage": "vitest src --coverage",
-    "coverage:run": "vitest src --run --coverage",
-    "build": "tsup --no-splitting src/index.dev.ts src/index.prod.ts",
-    "prepublishOnly": "pnpm test:run && pnpm build",
+    "check": "bun run check:lint && bun run check:format",
+    "test:watch": "bun test --watch",
+    "test:run": "bun test",
+    "coverage:watch": "bun test --watch --coverage",
+    "coverage:run": "bun test --coverage",
+    "build": "tsup",
+    "prepublishOnly": "bun test:run && bun build",
     "release": "release-it",
-    "generate:types": "tsx scripts/generate/index.ts"
+    "generate:types": "bun run scripts/generate/index.ts"
   },
   "devDependencies": {
-    "@fast-check/vitest": "0.0.6",
-    "@types/benchmark": "2.1.2",
-    "@types/node": "20.5.0",
     "@typescript-eslint/eslint-plugin": "6.4.0",
     "@typescript-eslint/parser": "6.4.0",
-    "@vitest/coverage-v8": "0.34.1",
-    "benchmark": "2.1.4",
+    "bun-types": "^0.7.3",
     "eslint": "8.47.0",
     "eslint-config-prettier": "9.0.0",
     "fast-check": "3.12.0",
     "prettier": "3.0.2",
     "release-it": "16.1.5",
-    "ts-node": "10.9.1",
     "tsup": "7.2.0",
-    "tsx": "3.12.7",
-    "typescript": "5.1.6",
-    "vitest": "0.34.1"
+    "typescript": "5.1.6"
   }
 }

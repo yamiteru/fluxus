@@ -1,23 +1,25 @@
-import { fc, it } from "@fast-check/vitest";
-import { describe, expect } from "vitest";
+import fc from "fast-check";
+import { describe, expect, it } from "bun:test";
 import * as prod from "./index.prod.js";
 import * as dev from "./index.dev.js";
-import { string_type } from "../../operations/index.prod.js";
+import { string_type } from "@operations/string_type/index.prod.js";
 
 describe("method/parse", () => {
-  it.prop([fc.string()])(
-    "should return output if input matches operation",
-    (v) => {
-      expect(prod.parse(string_type, v)).toBe(v);
-      expect(dev.parse(string_type, v)).toBe(v);
-    },
-  );
+  it("should return output if input matches operation", () => {
+    fc.assert(
+      fc.property(fc.string(), (v) => {
+        expect(prod.parse(string_type, v)).toBe(v);
+        expect(dev.parse(string_type, v)).toBe(v);
+      }),
+    );
+  });
 
-  it.prop([fc.integer()])(
-    "should throw if input doesn't match operation",
-    (v) => {
-      expect(() => prod.parse(string_type, v)).toThrow();
-      expect(() => dev.parse(string_type, v)).toThrow();
-    },
-  );
+  it("should throw if input doesn't match operation", () => {
+    fc.assert(
+      fc.property(fc.nat(), (v) => {
+        expect(() => prod.parse(string_type, v)).toThrow();
+        expect(() => dev.parse(string_type, v)).toThrow();
+      }),
+    );
+  });
 });

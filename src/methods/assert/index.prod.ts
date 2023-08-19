@@ -1,4 +1,4 @@
-import { Operation } from "../../types.js";
+import { Operation } from "@types";
 
 /*
  * Asserts that the value matches the operation.

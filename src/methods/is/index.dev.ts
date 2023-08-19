@@ -1,5 +1,5 @@
-import { Operation } from "../../types.js";
-import { assert } from "../assert/index.dev.js";
+import { Operation } from "@types";
+import { assert } from "@methods/assert/index.dev.js";
 
 /*
  * Checks if the value matches the operation.

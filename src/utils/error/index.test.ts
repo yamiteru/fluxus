@@ -1,14 +1,15 @@
-import { describe, expect } from "vitest";
+import { describe, expect, it } from "bun:test";
 import * as prod from "./index.prod.js";
 import * as dev from "./index.dev.js";
-import { fc, it } from "@fast-check/vitest";
+import fc from "fast-check";
 
 describe("util/error", () => {
-  it.prop([fc.dictionary(fc.string(), fc.anything())])(
-    "should throw a custom errorProd",
-    (v) => {
-      expect(() => prod.error("TEST", v)).toThrow(prod.CustomError);
-      expect(() => dev.error("TEST")).toThrow(dev.CustomError);
-    },
-  );
+  it("should throw a custom error", () => {
+    fc.assert(
+      fc.property(fc.dictionary(fc.string(), fc.anything()), (v) => {
+        expect(() => prod.error("TEST", v)).toThrow(prod.FluxusError as any);
+        expect(() => dev.error()).toThrow(dev.FluxusError as any);
+      }),
+    );
+  });
 });

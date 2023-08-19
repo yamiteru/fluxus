@@ -1,13 +1,34 @@
 {
   "compilerOptions": {
     "strict": true,
+    "types": [
+      "bun-types"
+    ],
     "module": "NodeNext",
     "target": "ESNext",
     "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "declaration": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "baseUrl": "./src",
+    "paths": {
+      "@methods/*": [
+        "methods/*"
+      ],
+      "@operations/*": [
+        "operations/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@types": [
+        "types.ts"
+      ],
+      "@tests": [
+        "tests.ts"
+      ]
+    }
   },
   "exclude": [
     "node_modules"

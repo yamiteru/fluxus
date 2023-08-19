@@ -1,4 +1,4 @@
-import { Operation } from "../../types.js";
+import { Operation } from "@types";
 
 /*
  * Parses the input using the provided operation.
