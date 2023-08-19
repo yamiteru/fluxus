@@ -19,11 +19,9 @@ export const array = <$Operation extends Operation>(
     operation: $Operation;
   }
 > => {
-  const parse = (value: Input<$Operation>[]) => {
-    is_array(value);
-
-    return value.map((v) => operation(v));
-  };
+  const parse = (value: Input<$Operation>[]) => (
+    is_array(value), value.map((v) => operation(v))
+  );
 
   parse.operation = operation;
 

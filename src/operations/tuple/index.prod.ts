@@ -11,11 +11,9 @@ export const tuple = <$Tuple extends Operation[]>(
   InferTupleOutput<$Tuple>,
   { tuple: $Tuple }
 > => {
-  const parse = (value: InferTupleInput<$Tuple>) => {
-    is_array(value);
-
-    return tuple.map((operation, i) => operation(value[i]));
-  };
+  const parse = (value: InferTupleInput<$Tuple>) => (
+    is_array(value), tuple.map((operation, i) => operation(value[i]))
+  );
 
   parse.tuple = tuple;
 

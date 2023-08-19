@@ -1245,5 +1245,6 @@ export function and<
  * ```
  * */
 export function and<$Operations extends Operation[]>(operations: $Operations) {
-  return (value: any) => operations.reduce((acc, guard) => guard(acc), value);
+  return (value: any) =>
+    operations.reduce((acc, operation) => operation(acc), value);
 }

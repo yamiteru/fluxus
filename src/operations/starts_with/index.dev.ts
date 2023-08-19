@@ -11,6 +11,10 @@ export const starts_with =
   <$SearchString extends string>(searchString: $SearchString) =>
   <$Value extends string>(value: $Value) => (
     !value.startsWith(searchString) &&
-      error("STARTS_WITH", { searchString, value }),
+      error(
+        `Value [${value}] should start with [${searchString}]`,
+        "STARTS_WITH",
+        { searchString, value },
+      ),
     value
   );

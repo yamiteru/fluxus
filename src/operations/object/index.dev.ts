@@ -39,7 +39,14 @@ export const object = <$Schema extends ObjectSchema>(
       try {
         output[key] = schema[key](value[key]);
       } catch (e) {
-        error("OBJECT", { key }, e);
+        error(
+          `Operation [${schema[key].name}] failed with value [${
+            value[key]
+          }] of type [${typeof value[key]}]`,
+          "OBJECT",
+          { key },
+          e,
+        );
       }
     }
 

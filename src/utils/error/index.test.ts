@@ -7,8 +7,8 @@ describe("util/error", () => {
   it("should throw a custom error", () => {
     fc.assert(
       fc.property(fc.dictionary(fc.string(), fc.anything()), (v) => {
-        expect(() => prod.error("TEST", v)).toThrow(prod.FluxusError as any);
-        expect(() => dev.error()).toThrow(dev.FluxusError as any);
+        expect(() => prod.error()).toThrow();
+        expect(() => dev.error("Something went wrong", "TEST", v)).toThrow();
       }),
     );
   });

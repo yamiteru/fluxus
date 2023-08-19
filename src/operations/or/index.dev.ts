@@ -26,6 +26,8 @@ export function or<$Operations extends Operation[]>(
       }
     }
 
-    error("OR", { operations });
+    error(`All operation threw an error with input value [${value}]`, "OR", {
+      operations,
+    });
   };
 }

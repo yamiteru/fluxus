@@ -11,6 +11,9 @@ export const ends_with =
   <$SearchString extends string>(searchString: $SearchString) =>
   <$Value extends string>(value: $Value) => (
     !value.endsWith(searchString) &&
-      error("ENDS_WITH", { searchString, value }),
+      error(`Value [${value}] should end with [${searchString}]`, "ENDS_WITH", {
+        searchString,
+        value,
+      }),
     value
   );

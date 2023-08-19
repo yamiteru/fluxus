@@ -16,9 +16,13 @@ export const type_of =
   ): Operation<any, TypeOfType<$TypeOfOptions>> =>
   (value) => (
     typeof value !== desiredType &&
-      error("TYPE", {
-        desiredType,
-        currentType: typeof value,
-      }),
+      error(
+        `Value [${value}] of type [${typeof value}] should be of type [${desiredType}]`,
+        "TYPE",
+        {
+          desiredType,
+          currentType: typeof value,
+        },
+      ),
     value as TypeOfType<$TypeOfOptions>
   );

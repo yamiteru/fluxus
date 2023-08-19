@@ -8,6 +8,10 @@ export const literal =
   <$Type>(desiredValue: $Type): Operation<$Type> =>
   (currentValue) => (
     currentValue !== desiredValue &&
-      error("LITERAL", { desiredValue, currentValue }),
+      error(
+        `Value [${currentValue}] should be equal to [${desiredValue}]`,
+        "LITERAL",
+        { desiredValue, currentValue },
+      ),
     currentValue
   );

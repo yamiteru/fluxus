@@ -34,7 +34,20 @@ export const record = <
       try {
         output[key(k)] = value(v[k]);
       } catch (e) {
-        error("RECORD", { key: k, value: v[k], operations: { key, value } }, e);
+        error(
+          `KV operation pair [${key.name}, ${
+            value.name
+          }] failed with values [${k}, ${
+            v[k]
+          }] of types [${typeof k}, ${typeof v[k]}]`,
+          "RECORD",
+          {
+            key: k,
+            value: v[k],
+            operations: { key, value },
+          },
+          e,
+        );
       }
     }
 

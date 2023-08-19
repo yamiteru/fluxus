@@ -1,8 +1,9 @@
-export class FluxusError {}
+import { FluxusError } from "@types";
+import { ERROR_SYMBOL } from "@constants";
 
 /*
- * Throws a new `FluxusError`.
+ * Throws a new custom error.
  * */
-export const error = () => {
-  throw new FluxusError();
+export const error = (...props: Partial<FluxusError>) => {
+  throw [ERROR_SYMBOL, ...props];
 };

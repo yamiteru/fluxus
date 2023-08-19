@@ -1247,11 +1247,18 @@ export function and<
  * */
 export function and<$Operations extends Operation[]>(operations: $Operations) {
   return (value: any) =>
-    operations.reduce((acc, guard) => {
+    operations.reduce((acc, operation) => {
       try {
-        return guard(acc);
+        return operation(acc);
       } catch (e) {
-        error("AND", { guard }, e);
+        error(
+          `Operation [${
+            operation.name
+          }] failed with value [${acc}] of type [${typeof acc}]`,
+          "AND",
+          { operation },
+          e,
+        );
       }
     }, value);
 }

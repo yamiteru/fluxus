@@ -23,11 +23,20 @@ export const array = <$Operation extends Operation>(
   const parse = (value: Input<$Operation>[]) => {
     is_array(value);
 
-    try {
-      return value.map((v) => operation(v));
-    } catch (e) {
-      error("ARRAY", { operation }, e);
-    }
+    return value.map((v) => {
+      try {
+        return operation(v);
+      } catch (e) {
+        error(
+          `Operation [${
+            operation.name
+          }] failed with value [${v}] of type [${typeof v}]`,
+          "ARRAY",
+          { operation },
+          e,
+        );
+      }
+    });
   };
 
   parse.operation = operation;

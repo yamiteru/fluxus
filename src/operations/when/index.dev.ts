@@ -27,7 +27,17 @@ export const when = <$Input, $TrueOutput, $FalseOutput = never>(
       if (falseCase) {
         return falseCase(value);
       } else {
-        error("WHEN", { trueCase, falseCase }, e);
+        error(
+          `Condition [${
+            condition.name
+          }] failed with value [${value}] of type [${typeof value}]`,
+          "WHEN",
+          {
+            trueCase,
+            falseCase,
+          },
+          e,
+        );
       }
     }
   };
