@@ -6,17 +6,24 @@ import { string_type } from "@operations/string_type/index.prod.js";
 import { number_type } from "@operations/number_type/index.prod.js";
 import { boolean_type } from "@operations/boolean_type/index.prod.js";
 import { optional } from "@operations/optional/index.prod.js";
+import { nullable } from "@operations/nullable/index.prod.js";
 
 describe("operation/object/object", () => {
   const object_schema_prod = prod.object({
-    a: string_type,
-    b: number_type,
+    a: prod.object({
+      a1: string_type,
+      a2: number_type,
+    }),
+    b: nullable(number_type),
     c: optional(boolean_type),
   });
 
   const object_schema_dev = dev.object({
-    a: string_type,
-    b: number_type,
+    a: prod.object({
+      a1: string_type,
+      a2: number_type,
+    }),
+    b: nullable(number_type),
     c: optional(boolean_type),
   });
 
@@ -24,8 +31,11 @@ describe("operation/object/object", () => {
     fc.assert(
       fc.property(
         fc.record({
-          a: fc.string(),
-          b: fc.nat(),
+          a: fc.record({
+            a1: fc.string(),
+            a2: fc.nat(),
+          }),
+          b: fc.oneof(fc.nat(), fc.constantFrom(null)),
           c: fc.oneof(fc.boolean(), fc.constantFrom(undefined)),
         }),
         (v) => {
