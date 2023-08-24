@@ -5,18 +5,19 @@ import * as dev from "./index.dev.js";
 import { string_type } from "@operations/string_type/index.prod.js";
 import { number_type } from "@operations/number_type/index.prod.js";
 import { boolean_type } from "@operations/boolean_type/index.prod.js";
+import { optional } from "@operations/optional/index.prod.js";
 
 describe("operation/object/object", () => {
   const object_schema_prod = prod.object({
     a: string_type,
     b: number_type,
-    c: boolean_type,
+    c: optional(boolean_type),
   });
 
   const object_schema_dev = dev.object({
     a: string_type,
     b: number_type,
-    c: boolean_type,
+    c: optional(boolean_type),
   });
 
   it("should return the value if it matches a schema", () => {
@@ -25,7 +26,7 @@ describe("operation/object/object", () => {
         fc.record({
           a: fc.string(),
           b: fc.nat(),
-          c: fc.boolean(),
+          c: fc.oneof(fc.boolean(), fc.constantFrom(undefined)),
         }),
         (v) => {
           expect(object_schema_prod(v)).toEqual(v);
@@ -35,13 +36,13 @@ describe("operation/object/object", () => {
     );
   });
 
-  it("should throw an errorProd if the value does not match a schema", () => {
+  it("should throw an error if the value does not match a schema", () => {
     fc.assert(
       fc.property(
         fc.record({
-          a: fc.string(),
-          b: fc.nat(),
-          c: fc.string(),
+          a: fc.boolean(),
+          b: fc.string(),
+          c: fc.nat(),
         }),
         (v) => {
           expect(() => object_schema_prod(v as any)).toThrow();
