@@ -73,3 +73,4 @@ export * from "@operations/undefined_type/index.prod.js";
 export * from "@operations/unknown/index.prod.js";
 export * from "@operations/uuid/index.prod.js";
 export * from "@operations/when/index.prod.js";
+export * from "@operations/wrap/index.prod.js";

@@ -73,3 +73,4 @@ export * from "@operations/undefined_type/index.dev.js";
 export * from "@operations/unknown/index.dev.js";
 export * from "@operations/uuid/index.dev.js";
 export * from "@operations/when/index.dev.js";
+export * from "@operations/wrap/index.dev.js";
