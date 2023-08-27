@@ -1,7 +1,7 @@
 {
   "name": "fluxus",
   "type": "module",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Miroslav Vršecký <yamiteru@icloud.com>",
   "description": "Low-level data validation library for TypeScript",
   "main": "dist/index.dev.cjs",
