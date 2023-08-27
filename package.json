@@ -4,8 +4,8 @@
   "version": "0.0.6",
   "author": "Miroslav Vršecký <yamiteru@icloud.com>",
   "description": "Low-level data validation library for TypeScript",
-  "main": "dist/index.prod.cjs",
-  "types": "dist/index.prod.d.ts",
+  "main": "dist/index.dev.cjs",
+  "types": "dist/index.dev.d.ts",
   "exports": {
     ".": {
       "production": {
@@ -30,12 +30,12 @@
       },
       "default": {
         "import": {
-          "types": "./dist/index.prod.d.ts",
-          "default": "./dist/index.prod.js"
+          "types": "./dist/index.dev.d.ts",
+          "default": "./dist/index.dev.js"
         },
         "require": {
-          "types": "./dist/index.prod.d.ts",
-          "default": "./dist/index.prod.cjs"
+          "types": "./dist/index.dev.d.ts",
+          "default": "./dist/index.dev.cjs"
         }
       }
     }
