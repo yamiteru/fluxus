@@ -1,12 +1,5 @@
 import { Input, Operation, Output } from "@types";
 
-/*
- * Tried to run an operation.
- *
- * If it fails it returns a default value.
- *
- * The default value is lazy.
- * */
 export const defaulted =
   <$Operation extends Operation>(
     operation: $Operation,

@@ -1,15 +1,6 @@
 import { Input, Operation, Output } from "@types";
 import { is_array } from "@operations/is_array/index.prod.js";
 
-/*
- * Checks if all items in an array match a given operation.
- *
- * If any of the items fail, throws an errorProd.
- *
- * @example
- * ```ts
- * array(string_type);
- * */
 export const array = <$Operation extends Operation>(
   operation: $Operation,
 ): Operation<

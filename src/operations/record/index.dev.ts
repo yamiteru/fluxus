@@ -2,18 +2,6 @@ import { Input, ObjectKey, Operation, Output } from "@types";
 import { object_type } from "@operations/object_type/index.dev.js";
 import { error } from "@utils/error/index.dev.js";
 
-/*
- * Checks if the value is a record with the given key and value operations.
- *
- * If the operation throws an errorProd, the errorProd is caught and wrapper in record errorProd.
- *
- * @example
- * ```ts
- * record(
- *   string_type,
- *   number_type,
- * );
- * */
 export const record = <
   $Key extends Operation<any, ObjectKey>,
   $Value extends Operation,

@@ -1,0 +1,3 @@
+# any
+
+Accepts `any` input.
