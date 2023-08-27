@@ -76,7 +76,7 @@
     "coverage:watch": "bun test --watch --coverage",
     "coverage:run": "bun test --coverage",
     "build": "tsup",
-    "prepublishOnly": "bun test:run && bun build",
+    "prepublishOnly": "bun test:run && bun run build",
     "release": "release-it",
     "generate:types": "bun run scripts/generate/index.ts"
   },
