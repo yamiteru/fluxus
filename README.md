@@ -1,14 +1,10 @@
 # Fluxus
 
-## Highlights
+Is this library for you?
 
-- Full type inference
-- Tiny bundle size
-- Fast runtime
-- Production safe errors
-- 100% test coverage
-- No dependencies
-- Low-level and declarative API
+Do you care about performance and bundle size and don't mind a bit steeper learning curve?
+
+If you need more information then check out our [Comparison](./docs/comparison.md) section.
 
 ## Example
 
