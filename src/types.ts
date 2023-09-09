@@ -24,6 +24,11 @@ export type Output<$Operation extends Operation> = $Operation extends Operation<
 
 export type ObjectSchema = Record<string, Operation>;
 
+export type InferObjectSchemaFromOperation<$Operation extends Operation> =
+  $Operation extends Operation<any, any, { schema: infer $Schema }>
+    ? $Schema
+    : never;
+
 export type ObjectInput<$Schema extends ObjectSchema> = Pretty<{
   [$Key in keyof $Schema]: Input<$Schema[$Key]>;
 }>;
