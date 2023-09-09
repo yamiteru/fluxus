@@ -2,7 +2,7 @@ import fc from "fast-check";
 import { describe, expect, it } from "bun:test";
 import * as prod from "./index.prod.js";
 import * as dev from "./index.dev.js";
-import { string_type } from "@operations/string_type/index.prod.js";
+import { string_type } from "@operations/types/string_type/index.prod.js";
 
 describe("method/assert", () => {
   it("should not throw if input matches operation", () => {
@@ -14,7 +14,7 @@ describe("method/assert", () => {
     );
   });
 
-  it("should throw if input doesn't match operation", () => {
+  it("should return throw if input doesn't match operation", () => {
     fc.assert(
       fc.property(fc.nat(), (v) => {
         expect(() => prod.assert(string_type, v)).toThrow();

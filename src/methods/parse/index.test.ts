@@ -2,7 +2,7 @@ import fc from "fast-check";
 import { describe, expect, it } from "bun:test";
 import * as prod from "./index.prod.js";
 import * as dev from "./index.dev.js";
-import { string_type } from "@operations/string_type/index.prod.js";
+import { string_type } from "@operations/types/string_type/index.prod.js";
 
 describe("method/parse", () => {
   it("should return output if input matches operation", () => {

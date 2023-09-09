@@ -1,5 +1,5 @@
 import { Operation } from "@types";
-import { assert } from "@methods/assert/index.dev.js";
+import { assert } from "@methods/assert/index.prod.js";
 
 export function is<$Input, $Output>(
   operation: Operation<$Input, $Output>,

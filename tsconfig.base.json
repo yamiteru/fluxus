@@ -27,9 +27,6 @@
       ],
       "@tests": [
         "tests.ts"
-      ],
-      "@constants": [
-        "constants.ts"
       ]
     }
   },

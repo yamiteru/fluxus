@@ -9,34 +9,16 @@
   "exports": {
     ".": {
       "production": {
-        "import": {
-          "types": "./dist/index.prod.d.ts",
-          "default": "./dist/index.prod.js"
-        },
-        "require": {
-          "types": "./dist/index.prod.d.ts",
-          "default": "./dist/index.prod.cjs"
-        }
+        "types": "./dist/index.prod.d.ts",
+        "default": "./dist/index.prod.js"
       },
       "development": {
-        "import": {
-          "types": "./dist/index.dev.d.ts",
-          "default": "./dist/index.dev.js"
-        },
-        "require": {
-          "types": "./dist/index.dev.d.ts",
-          "default": "./dist/index.dev.cjs"
-        }
+        "types": "./dist/index.dev.d.ts",
+        "default": "./dist/index.dev.js"
       },
       "default": {
-        "import": {
-          "types": "./dist/index.dev.d.ts",
-          "default": "./dist/index.dev.js"
-        },
-        "require": {
-          "types": "./dist/index.dev.d.ts",
-          "default": "./dist/index.dev.cjs"
-        }
+        "types": "./dist/index.dev.d.ts",
+        "default": "./dist/index.dev.js"
       }
     }
   },
@@ -75,7 +57,9 @@
     "test:run": "bun test",
     "coverage:watch": "bun test --watch --coverage",
     "coverage:run": "bun test --coverage",
-    "build": "tsup",
+    "build": "rm -rf dist && bun run build:dev && bun run build:prod",
+    "build:dev": "bun build src/index.dev.ts --outdir ./dist --sourcemap=external --minify && tsup src/index.dev.ts --dts-only --format esm",
+    "build:prod": "bun build src/index.prod.ts --outdir ./dist --sourcemap=external --minify && tsup src/index.prod.ts --dts-only --format esm",
     "prepublishOnly": "bun test:run && bun run build",
     "release": "release-it",
     "generate:types": "bun run scripts/generate/index.ts"
@@ -89,7 +73,7 @@
     "fast-check": "3.12.0",
     "prettier": "3.0.2",
     "release-it": "16.1.5",
-    "tsup": "7.2.0",
-    "typescript": "5.2.2"
+    "typescript": "5.2.2",
+    "tsup": "7.2.0"
   }
 }

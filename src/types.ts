@@ -2,13 +2,6 @@ export type Pretty<$Type> = {
   [$Key in keyof $Type]: $Type[$Key];
 } & {};
 
-export type FluxusError = [
-  message: string,
-  reason: string,
-  context?: Record<string, any>,
-  children?: FluxusError | unknown,
-];
-
 export type Operation<
   $Input = any,
   $Output = $Input,
