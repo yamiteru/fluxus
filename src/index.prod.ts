@@ -74,3 +74,4 @@ export * from "@operations/general/unknown/index.prod.js";
 export * from "@operations/string/uuid/index.prod.js";
 export * from "@operations/general/when/index.prod.js";
 export * from "@operations/general/wrap/index.prod.js";
+export * from "@operations/object/is_object/index.prod.js";

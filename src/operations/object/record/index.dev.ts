@@ -1,8 +1,6 @@
 import { Input, ObjectKey, Operation, Output } from "@types";
-import { object_type } from "@operations/types/object_type/index.dev.js";
 import { error } from "@utils/error/index.dev.js";
-import { not } from "@operations/general/not/index.dev.js";
-import { literal } from "@operations/general/literal/index.dev.js";
+import { is_object } from "@operations/object/is_object/index.dev.js";
 
 export const record = <
   $Key extends Operation<any, ObjectKey>,
@@ -16,8 +14,7 @@ export const record = <
   { key: $Key; value: $Value }
 > => {
   const parse = (v: Record<Input<$Key>, Input<$Value>>) => {
-    object_type(v);
-    not(literal(null))(v);
+    is_object(v);
 
     const output = {} as Record<Output<$Key>, Output<$Value>>;
 
