@@ -27,6 +27,12 @@
       ],
       "@tests": [
         "tests.ts"
+      ],
+      "@dev": [
+        "index.dev.ts"
+      ],
+      "@prod": [
+        "index.prod.ts"
       ]
     }
   },
