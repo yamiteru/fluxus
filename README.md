@@ -1,5 +1,9 @@
 # Fluxus
 
+The development of this library is on hold until Bun macros can output functions.
+
+---
+
 Is this library for you?
 
 Do you care about performance and bundle size and don't mind a bit steeper learning curve?
